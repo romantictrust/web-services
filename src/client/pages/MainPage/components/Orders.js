@@ -23,7 +23,7 @@ export default function Orders(props) {
     setPage(newPage);
   };
 
-  const handleChangeRowsPerPage = event => {
+  const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
@@ -48,34 +48,34 @@ export default function Orders(props) {
               <TableBody>
                 {userData.orders
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map(row => (
+                  .map((row) => (
                     <TableRow key={row.index}>
                       <TableCell>{row.index}</TableCell>
                       <TableCell>{row.flag}</TableCell>
                       <TableCell>{row.material}</TableCell>
                       <TableCell>{row.amount}</TableCell>
                       <TableCell>{row.price}</TableCell>
-                      <TableCell align="right">{row.date}</TableCell>
+                      <TableCell align="right" style={{ paddingLeft: 0 }}>
+                        {row.date}
+                      </TableCell>
                     </TableRow>
                   ))}
               </TableBody>
               <TableFooter>
-                <TableRow>
                   <TablePagination
                     rowsPerPageOptions={[5, 10, 25]}
-                    colSpan={3}
+                    colSpan={Object.keys(userData.orders[0]).length}
                     count={userData.orders.length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     SelectProps={{
                       inputProps: { "aria-label": "rows per page" },
-                      native: true
+                      native: true,
                     }}
                     onChangePage={handleChangePage}
                     onChangeRowsPerPage={handleChangeRowsPerPage}
                     ActionsComponent={TablePaginationActions}
                   />
-                </TableRow>
               </TableFooter>
             </Table>
           ) : (

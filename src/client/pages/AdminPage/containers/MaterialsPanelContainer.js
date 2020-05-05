@@ -8,6 +8,7 @@ import getMaterials from "../../../shared/functions/getMaterials";
 import MaterialsPanel from "../components/MaterialsPanel";
 import useStyles from "../styles/AdminPageStyle";
 import Title from "../../../shared/components/Title";
+import Loader from "../../../shared/components/Loader";
 
 const socket = socketIOClient("http://localhost:8000");
 
@@ -22,12 +23,12 @@ function MaterialsPanelContainer(props) {
   socket.on("updateMaterial", data => {
     setMaterialData(data);
   });
-  if (data) {
-    return (
-      <Paper className={classes.paper}>
-        <Title>Materials Pannel</Title>
-        <Grid container className={classes.operationBoxWrap}>
-          {data.map((item, index) => (
+  return (
+    <Paper className={classes.paper}>
+      <Title>Materials Pannel</Title>
+      <Grid container className={classes.operationBoxWrap}>
+        {data ? (
+          data.map((item, index) => (
             <MaterialsPanel
               key={item._id}
               admin={user}
@@ -35,12 +36,13 @@ function MaterialsPanelContainer(props) {
               material={item}
               index={index}
             />
-          ))}
-        </Grid>
-      </Paper>
-    );
-  }
-  return <div>No data yet.</div>;
+          ))
+        ) : (
+          <Loader />
+        )}
+      </Grid>
+    </Paper>
+  );
 }
 const mapStateToProps = state => ({
   user: state.shared.user,
