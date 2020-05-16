@@ -62,6 +62,7 @@ export default function Orders(props) {
                   ))}
               </TableBody>
               <TableFooter>
+                <TableRow>
                   <TablePagination
                     rowsPerPageOptions={[5, 10, 25]}
                     colSpan={Object.keys(userData.orders[0]).length}
@@ -76,6 +77,7 @@ export default function Orders(props) {
                     onChangeRowsPerPage={handleChangeRowsPerPage}
                     ActionsComponent={TablePaginationActions}
                   />
+                </TableRow>
               </TableFooter>
             </Table>
           ) : (

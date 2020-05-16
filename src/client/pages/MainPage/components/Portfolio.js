@@ -13,7 +13,7 @@ export default function Portfolio(props) {
     userData,
     setUsersData,
     setProfitData,
-    setPaymentOperation
+    setPaymentOperation,
   } = props;
   const user = userData;
   return (
