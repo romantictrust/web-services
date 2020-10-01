@@ -32,7 +32,8 @@ The application consists of two parts: the server and client sides.
 - React.js + Redux
 
 ## Usage
-
-- npm i
-- npm run server
-- npm start
+```bash
+npm i
+npm run server
+npm start
+```
