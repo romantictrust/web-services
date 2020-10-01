@@ -104,7 +104,7 @@ export default function UsersPanel(props) {
                 <TableRow>
                   <TablePagination
                     rowsPerPageOptions={[5, 10, 25]}
-                    colSpan={3}
+                    colSpan={usersList.length}
                     count={usersList.length}
                     rowsPerPage={rowsPerPage}
                     page={page}
