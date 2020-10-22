@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNEXT",
+    "module": "ES2020",
+    "outDir": "./server/dist",
+    "strict": true,
+    "strictNullChecks": false,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "typeRoots": [
+      "typings",
+      "node_modules/@types"
+  ]
+  },
+  "include": ["server/src/*.ts"],
+  "exclude": [
+    "node_modules",
+    "public",
+    "**/*.spec.ts"
+  ]
+}

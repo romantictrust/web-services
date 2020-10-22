@@ -11,7 +11,6 @@ import { TableFooter } from "@material-ui/core";
 import useStyles from "../styles/TabPanelStyle";
 import Title from "../../../shared/components/Title";
 import TablePaginationActions from "../../../shared/components/Pagination";
-import Loader from "../../../shared/components/Loader";
 
 export default function Orders(props) {
   const classes = useStyles();
@@ -82,8 +81,7 @@ export default function Orders(props) {
             </Table>
           ) : (
             <div>
-              <Loader />
-              <div>Waiting for making orders..</div>
+              <div>There are no operations yet.</div>
             </div>
           )}
         </div>

@@ -43,11 +43,11 @@ app.use(
 );
 
 // Socket
-io.sockets.on('connect', (socket) => {
+io.sockets.on('connect', (socket: any) => {
   console.log(`Socket ${socket.id} connected.`);
   console.log(`${io.engine.clientsCount} sockets connected`);
 
-  socket.on('updateMaterial', (data) => {
+  socket.on('updateMaterial', (data: any) => {
     io.sockets.emit('updateMaterial', data);
   });
 

@@ -31,9 +31,18 @@ The application consists of two parts: the server and client sides.
 - Frontend/backend validation
 - React.js + Redux
 
-## Usage
+## Usage FE
+
 ```bash
+cd frontend
+npm i
+npm start
+```
+
+## Usage BE
+
+```bash
+cd backend
 npm i
 npm run server
-npm start
 ```
